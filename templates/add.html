@@ -1,0 +1,25 @@
+<html>
+<head>
+  <title>users</title>
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <h1>Add a user!</h1>
+    <form action = '/add_user' method = 'post'>
+      First Name <input type = 'text' name = "first" />
+      Last Name <input type="text" name = "last" />
+      Occupation <input type="text" name = "occupation" />
+      address: <input type="text" name = "address" />
+      <input type="submit" name="add" value="Add" />
+    </form>
+
+<a href="/">Go Back</a>
+</body>
+</html>

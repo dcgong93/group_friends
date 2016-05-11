@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>Update</title>
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <h1>Update!</h1>
+        {% for user in users%}
+        <p>{{user['id']}} {{user['f_name']}} {{user['l_name']}} {{user['occupation']}} {{user['address']}}</p>
+
+      <form action = '/update_user/{{user['id']}}' method = 'post'>
+        First Name <input type = 'text' name = "first" />
+        Last Name <input type="text" name = "last" />
+        Occupation <input type="text" name = "occupation" />
+        address: <input type="text" name = "address" />
+        <input type="submit" name="add" value="Update" />
+      </form>
+      {% endfor%}
+<a href="/">Go Back</a>
+</body>
+</html>

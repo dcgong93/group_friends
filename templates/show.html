@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>users</title>
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <h1>Showing!</h1>
+
+      {% for user in users %}
+        <p>{{user['id']}} {{user['f_name']}} {{user['l_name']}} {{user['occupation']}} {{user['address']}}</p>
+      {% endfor %}
+
+<a href="/">Go Back</a>
+</body>
+</html>

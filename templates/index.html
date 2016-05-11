@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>users</title>
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <h1>All users added!</h1>
+    {% for user in users %}
+        <p>
+          {{user['f_name']}} {{user['l_name']}}
+          <a href="/show/{{user.id}}">Show</a>
+          <a href="/update/{{user.id}}">Update</a>
+          <form action='/delete/{{user['id']}}' method = 'post'>
+            <input type='submit' name='action' value='delete' id="delete">
+          </form>
+        </p>
+    {% endfor %}
+
+<a href="/add">Add User</a>
+</body>
+</html>
